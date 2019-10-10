@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -17,7 +17,7 @@ var _FlattenOptions = _interopRequireDefault(require("./FlattenOptions"));
 
 var _GroupOptions = _interopRequireDefault(require("./GroupOptions"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -31,18 +31,18 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var SelectSearch =
 /*#__PURE__*/
-function (_React$Component) {
-  _inherits(SelectSearch, _React$Component);
+function (_React$PureComponent) {
+  _inherits(SelectSearch, _React$PureComponent);
 
   /**
    * Component setup
@@ -54,11 +54,11 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SelectSearch).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClickOutside", function () {
+    _defineProperty(_assertThisInitialized(_this), "handleClickOutside", function () {
       _this.onBlur();
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onBlur", function () {
+    _defineProperty(_assertThisInitialized(_this), "onBlur", function () {
       if (_this.props.search && !_this.props.multiple) {
         _this.search.current.blur();
       }
@@ -80,7 +80,7 @@ function (_React$Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onFocus", function () {
+    _defineProperty(_assertThisInitialized(_this), "onFocus", function () {
       _this.setState({
         focus: true,
         options: _this.state.defaultOptions,
@@ -88,7 +88,7 @@ function (_React$Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "onChange", function (e) {
       var value = e.target.value;
 
       if (!value) {
@@ -104,7 +104,7 @@ function (_React$Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onKeyPress", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "onKeyPress", function (e) {
       if (!_this.state.options || _this.state.options.length < 1) {
         return;
       }
@@ -116,7 +116,7 @@ function (_React$Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onKeyDown", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "onKeyDown", function (e) {
       if (!_this.state.focus) {
         return;
       }
@@ -142,14 +142,14 @@ function (_React$Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onKeyUp", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "onKeyUp", function (e) {
       /** Esc */
       if (e.keyCode === 27) {
         _this.handleEsc();
       }
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "toggle", function () {
+    _defineProperty(_assertThisInitialized(_this), "toggle", function () {
       if (_this.state.focus) {
         _this.onBlur();
       } else {
@@ -159,9 +159,10 @@ function (_React$Component) {
 
     var _options = props.options,
         _value = props.value,
-        multiple = props.multiple;
+        multiple = props.multiple,
+        className = props.className;
     var stateValue = !_value && multiple ? [] : _value;
-    var flattenedOptions = (0, _FlattenOptions.default)(_options);
+    var flattenedOptions = (0, _FlattenOptions["default"])(_options);
     var _search = '';
 
     if (stateValue) {
@@ -181,25 +182,34 @@ function (_React$Component) {
       focus: false
     };
     _this.classes = {
-      container: _this.props.multiple ? "".concat(_this.props.className, " ").concat(_Bem.default.m(_this.props.className, 'multiple')) : _this.props.className,
-      search: _Bem.default.e(_this.props.className, 'search'),
-      select: _Bem.default.e(_this.props.className, 'select'),
-      options: _Bem.default.e(_this.props.className, 'options'),
-      option: _Bem.default.e(_this.props.className, 'option'),
-      row: _Bem.default.e(_this.props.className, 'row'),
-      group: _Bem.default.e(_this.props.className, 'group'),
-      groupHeader: _Bem.default.e(_this.props.className, 'group-header'),
-      out: _Bem.default.e(_this.props.className, 'out'),
-      label: _Bem.default.e(_this.props.className, 'label'),
-      focus: _this.props.multiple ? "".concat(_this.props.className, " ").concat(_Bem.default.m(_this.props.className, 'multiple focus')) : "".concat(_this.props.className, " ").concat(_Bem.default.m(_this.props.className, 'focus'))
+      container: multiple ? "".concat(className, " ").concat(_Bem["default"].m(className, 'multiple')) : className,
+      search: _Bem["default"].e(className, 'search'),
+      select: _Bem["default"].e(className, 'select'),
+      options: _Bem["default"].e(className, 'options'),
+      option: _Bem["default"].e(className, 'option'),
+      row: _Bem["default"].e(className, 'row'),
+      group: _Bem["default"].e(className, 'group'),
+      groupHeader: _Bem["default"].e(className, 'group-header'),
+      out: _Bem["default"].e(className, 'out'),
+      label: _Bem["default"].e(className, 'label'),
+      focus: multiple ? "".concat(className, " ").concat(_Bem["default"].m(className, 'multiple focus')) : "".concat(className, " ").concat(_Bem["default"].m(className, 'focus'))
     };
-    _this.classes.focus += " ".concat(_Bem.default.m(_this.props.className, 'select'));
-    _this.classes.container += " ".concat(_Bem.default.m(_this.props.className, 'select'));
-    _this.container = _react.default.createRef();
-    _this.selectOptions = _react.default.createRef();
-    _this.select = _react.default.createRef();
-    _this.search = _react.default.createRef();
-    _this.outInput = _react.default.createRef();
+
+    if (multiple && !_this.props.search) {
+      _this.classes.container += " ".concat(_Bem["default"].m(_Bem["default"].e(className, 'icon'), 'disabled'));
+    }
+
+    if (!_this.props.search) {
+      _this.classes.focus += " ".concat(_Bem["default"].m(_Bem["default"].e(className, 'icon'), 'disabled'));
+    }
+
+    _this.classes.container += " ".concat(_Bem["default"].m(className, 'select'));
+    _this.classes.focus += " ".concat(_Bem["default"].m(className, 'select'));
+    _this.container = _react["default"].createRef();
+    _this.selectOptions = _react["default"].createRef();
+    _this.select = _react["default"].createRef();
+    _this.search = _react["default"].createRef();
+    _this.outInput = _react["default"].createRef();
     return _this;
   }
   /**
@@ -226,7 +236,7 @@ function (_React$Component) {
           value = _this$state.value;
 
       if (nextProps.options !== defaultOptions) {
-        var flattenedOptions = (0, _FlattenOptions.default)(nextProps.options);
+        var flattenedOptions = (0, _FlattenOptions["default"])(nextProps.options);
         nextState.options = flattenedOptions;
         nextState.defaultOptions = flattenedOptions;
       }
@@ -434,7 +444,8 @@ function (_React$Component) {
           currentValue = [];
         }
 
-        currentValue.push(option.value);
+        var currentIndex = currentValue.indexOf(option.value);
+        currentIndex > -1 ? currentValue.splice(currentIndex, 1) : currentValue.push(option.value);
         search = '';
       } else {
         currentValue = option.value;
@@ -470,7 +481,7 @@ function (_React$Component) {
       }
 
       var option = this.findByValue(this.state.defaultOptions, value);
-      var optionValue = this.state.value;
+      var optionValue = this.state.value.slice();
 
       if (!option || optionValue.indexOf(option.value) < 0) {
         return false;
@@ -490,7 +501,7 @@ function (_React$Component) {
     key: "getNewOptionsList",
     value: function getNewOptionsList(options, value) {
       if (options && options.length > 0 && value && value.length > 0) {
-        var fuse = new _fuse.default(options, this.props.fuse);
+        var fuse = new _fuse["default"](options, this.props.fuse);
         return fuse.search(value).map(function (item, index) {
           return Object.assign({}, item, {
             index: index
@@ -510,7 +521,7 @@ function (_React$Component) {
         return;
       }
 
-      var selectedItem = this.selectOptions.current.querySelector(".".concat(_Bem.default.m(this.classes.option, selected)));
+      var selectedItem = this.selectOptions.current.querySelector(".".concat(_Bem["default"].m(this.classes.option, selected)));
 
       if (selectedItem) {
         var searchOffset = this.search.current ? this.search.current.clientHeight : 0;
@@ -532,16 +543,16 @@ function (_React$Component) {
       className += " ".concat(this.classes.row);
 
       if (this.state.highlighted === option.index) {
-        className += " ".concat(_Bem.default.m(this.classes.option, 'hover'));
+        className += " ".concat(_Bem["default"].m(this.classes.option, 'hover'));
       }
 
       if (multiple && stateValue.indexOf(elementVal) >= 0 || elementVal === stateValue) {
-        className += " ".concat(_Bem.default.m(this.classes.option, 'selected'));
+        className += " ".concat(_Bem["default"].m(this.classes.option, 'selected'));
       }
 
       if (this.props.multiple) {
         if (this.state.value.indexOf(option.value) < 0) {
-          element = _react.default.createElement("li", {
+          element = _react["default"].createElement("li", {
             role: "menuitem",
             className: className,
             onClick: function onClick() {
@@ -551,7 +562,7 @@ function (_React$Component) {
             "data-value": option.value
           }, this.props.renderOption(option, this.state, this.props));
         } else {
-          element = _react.default.createElement("li", {
+          element = _react["default"].createElement("li", {
             role: "menuitem",
             className: className,
             onClick: function onClick() {
@@ -562,14 +573,14 @@ function (_React$Component) {
           }, this.props.renderOption(option, this.state, this.props));
         }
       } else if (option.value === this.state.value) {
-        element = _react.default.createElement("li", {
+        element = _react["default"].createElement("li", {
           role: "menuitem",
           className: className,
           key: "".concat(option.value, "-option"),
           "data-value": option.value
         }, this.props.renderOption(option));
       } else {
-        element = _react.default.createElement("li", {
+        element = _react["default"].createElement("li", {
           role: "menuitem",
           className: className,
           onClick: function onClick() {
@@ -596,7 +607,7 @@ function (_React$Component) {
           foundOptions = _this$state2.options;
 
       if (foundOptions && foundOptions.length > 0) {
-        var groupedOptions = (0, _GroupOptions.default)(foundOptions);
+        var groupedOptions = (0, _GroupOptions["default"])(foundOptions);
 
         if (groupedOptions && groupedOptions.length) {
           groupedOptions.forEach(function (option) {
@@ -605,14 +616,14 @@ function (_React$Component) {
               option.items.forEach(function (groupOption) {
                 subOptions.push(_this6.renderOption(groupOption, stateValue, multiple));
               });
-              options.push(_react.default.createElement("li", {
+              options.push(_react["default"].createElement("li", {
                 className: _this6.classes.row,
                 key: option.groupId
-              }, _react.default.createElement("div", {
+              }, _react["default"].createElement("div", {
                 className: _this6.classes.group
-              }, _react.default.createElement("div", {
+              }, _react["default"].createElement("div", {
                 className: _this6.classes.groupHeader
-              }, _this6.props.renderGroupHeader(option.name)), _react.default.createElement("ul", {
+              }, _this6.props.renderGroupHeader(option.name)), _react["default"].createElement("ul", {
                 className: _this6.classes.options
               }, subOptions))));
             } else {
@@ -621,7 +632,7 @@ function (_React$Component) {
           });
 
           if (options.length > 0) {
-            select = _react.default.createElement("ul", {
+            select = _react["default"].createElement("ul", {
               ref: this.selectOptions,
               className: this.classes.options
             }, options);
@@ -636,10 +647,10 @@ function (_React$Component) {
       var className = this.classes.select;
 
       if (this.state.focus) {
-        className += " ".concat(_Bem.default.m(this.classes.select, 'display'));
+        className += " ".concat(_Bem["default"].m(this.classes.select, 'display'));
       }
 
-      return _react.default.createElement("div", {
+      return _react["default"].createElement("div", {
         ref: this.select,
         className: className,
         style: selectStyle
@@ -654,16 +665,16 @@ function (_React$Component) {
       var outElement;
 
       if (this.props.multiple) {
-        if (this.state.value) {
+        if (Object.prototype.toString.call(this.state.value) == '[object Array]' && this.state.value.length) {
           var finalValueOptions = [];
           this.state.value.forEach(function (value) {
             option = _this7.findByValue(_this7.state.defaultOptions, value);
-            finalValueOptions.push(_react.default.createElement("option", {
+            finalValueOptions.push(_react["default"].createElement("option", {
               key: option.value,
               value: option.value
             }, option.name));
           });
-          outElement = _react.default.createElement("select", {
+          outElement = _react["default"].createElement("select", {
             value: this.state.value,
             className: this.classes.out,
             name: this.props.name,
@@ -671,16 +682,17 @@ function (_React$Component) {
             multiple: true
           }, finalValueOptions);
         } else {
-          outElement = _react.default.createElement("select", {
+          outElement = _react["default"].createElement("select", {
             className: this.classes.out,
             name: this.props.name,
             readOnly: true,
             multiple: true
-          }, _react.default.createElement("option", null, "Nothing selected"));
+          }, _react["default"].createElement("option", null, "Nothing selected"));
         }
       } else if (this.props.search) {
-        outElement = _react.default.createElement("input", {
+        outElement = _react["default"].createElement("input", {
           type: "hidden",
+          autoComplete: this.props.autoComplete,
           defaultValue: this.state.value,
           ref: this.outInput,
           name: this.props.name
@@ -692,8 +704,9 @@ function (_React$Component) {
           top: '-9999px',
           left: '-9999px'
         };
-        outElement = _react.default.createElement("input", {
+        outElement = _react["default"].createElement("input", {
           type: "text",
+          autoComplete: this.props.autoComplete,
           onFocus: this.onFocus,
           style: outStyle,
           value: this.state.value,
@@ -712,8 +725,10 @@ function (_React$Component) {
 
       if (this.props.search) {
         var name = null;
-        searchField = _react.default.createElement("input", {
+
+        var inputField = _react["default"].createElement("input", {
           name: name,
+          autoComplete: this.props.autoComplete,
           ref: this.search,
           onFocus: this.onFocus,
           onKeyPress: this.onKeyPress,
@@ -723,31 +738,39 @@ function (_React$Component) {
           onChange: this.onChange,
           placeholder: this.props.placeholder
         });
+
+        var option = this.findByValue(this.state.options, this.state.value);
+        searchField = this.props.renderSearchField(inputField, option);
       } else {
-        var option;
+        if (this.props.multiple) {
+          return;
+        }
+
+        var _option;
+
         var labelValue;
         var labelClassName;
 
         if (!this.state.value) {
           labelValue = this.props.placeholder;
-          labelClassName = "".concat(this.classes.search, " ").concat(_Bem.default.m(this.classes.search, 'placeholder'));
+          labelClassName = "".concat(this.classes.search, " ").concat(_Bem["default"].m(this.classes.search, 'placeholder'));
         } else {
-          option = this.findByValue(this.state.defaultOptions, this.state.value);
+          _option = this.findByValue(this.state.defaultOptions, this.state.value);
 
-          if (!option) {
-            option = this.state.defaultOptions[0];
+          if (!_option) {
+            _option = this.state.defaultOptions[0];
           }
 
-          labelValue = option.name;
+          labelValue = _option.name;
           labelClassName = this.classes.search;
         }
 
-        searchField = _react.default.createElement("div", {
+        searchField = _react["default"].createElement("div", {
           tabIndex: 0,
           role: "button",
           onClick: this.toggle,
           className: labelClassName
-        }, this.props.renderValue(labelValue, option, this.state, this.props));
+        }, this.props.renderValue(labelValue, _option, this.state, this.props));
       }
 
       return searchField;
@@ -756,7 +779,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var className = this.state.focus ? this.classes.focus : this.classes.container;
-      return _react.default.createElement("div", {
+      return _react["default"].createElement("div", {
         className: className,
         ref: this.container
       }, this.renderOutElement(), this.renderSearchField(), this.renderOptions());
@@ -764,7 +787,7 @@ function (_React$Component) {
   }]);
 
   return SelectSearch;
-}(_react.default.Component);
+}(_react["default"].PureComponent);
 
 _defineProperty(SelectSearch, "defaultProps", {
   className: 'select-search-box',
@@ -774,6 +797,7 @@ _defineProperty(SelectSearch, "defaultProps", {
   multiple: false,
   height: 200,
   name: null,
+  autoComplete: 'on',
   autofocus: false,
   onHighlight: function onHighlight() {},
   onMount: function onMount() {},
@@ -786,6 +810,9 @@ _defineProperty(SelectSearch, "defaultProps", {
   renderGroupHeader: function renderGroupHeader(title) {
     return title;
   },
+  renderSearchField: function renderSearchField(inputField) {
+    return inputField;
+  },
   renderValue: function renderValue(label) {
     return label;
   },
@@ -795,6 +822,6 @@ _defineProperty(SelectSearch, "defaultProps", {
   }
 });
 
-var _default = (0, _reactOnclickoutside.default)(SelectSearch);
+var _default = (0, _reactOnclickoutside["default"])(SelectSearch);
 
-exports.default = _default;
+exports["default"] = _default;

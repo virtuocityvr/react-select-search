@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 function FindGroup(options, id) {
   var foundIndex = null;
@@ -41,4 +41,4 @@ var GroupOptions = function GroupOptions(options) {
 };
 
 var _default = GroupOptions;
-exports.default = _default;
+exports["default"] = _default;

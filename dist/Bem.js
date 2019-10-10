@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 var Bem = {
   mSeparator: '--',
   eSeparator: '__',
@@ -20,4 +20,4 @@ var Bem = {
   }
 };
 var _default = Bem;
-exports.default = _default;
+exports["default"] = _default;

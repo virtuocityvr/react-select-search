@@ -24,6 +24,7 @@ class SelectSearch extends React.PureComponent {
         onChange: () => {},
         renderOption: option => option.name,
         renderGroupHeader: title => title,
+        renderSearchField: inputField => inputField,
         renderValue: label => label,
         fuse: {
             keys: ['name', 'groupName'],
@@ -361,7 +362,7 @@ class SelectSearch extends React.PureComponent {
     };
 
     chooseOption(value) {
-        let currentValue = this.state.value.slice();
+        let currentValue = this.state.value;
         let option;
         let search;
 
@@ -622,7 +623,9 @@ class SelectSearch extends React.PureComponent {
         if (this.props.search) {
             const name = null;
 
-            searchField = <input name={name} autoComplete={this.props.autoComplete} ref={this.search} onFocus={this.onFocus} onKeyPress={this.onKeyPress} className={this.classes.search} type="search" value={this.state.search} onChange={this.onChange} placeholder={this.props.placeholder} />;
+            let inputField = <input name={name} autoComplete={this.props.autoComplete} ref={this.search} onFocus={this.onFocus} onKeyPress={this.onKeyPress} className={this.classes.search} type="search" value={this.state.search} onChange={this.onChange} placeholder={this.props.placeholder} />;
+            const option = this.findByValue(this.state.options, this.state.value);
+            searchField = this.props.renderSearchField(inputField, option);
         } else {
             if (this.props.multiple) {
                 return;
@@ -686,6 +689,7 @@ SelectSearch.propTypes = {
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
     renderOption: PropTypes.func,
+    renderSearchField: PropTypes.func,
     renderValue: PropTypes.func,
     renderGroupHeader: PropTypes.func,
     value: PropTypes.oneOfType([

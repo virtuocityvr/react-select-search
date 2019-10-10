@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var FlattenOptions = function FlattenOptions(options) {
   var nextOptions = [];
@@ -26,4 +26,4 @@ var FlattenOptions = function FlattenOptions(options) {
 };
 
 var _default = FlattenOptions;
-exports.default = _default;
+exports["default"] = _default;
